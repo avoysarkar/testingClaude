@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day ❤️</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,7 +14,7 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Crimson Text', serif;
             overflow-x: hidden;
             background: #fff;
         }
@@ -49,55 +51,482 @@
             color: white;
         }
 
-        #page1 h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
+        .couple-image-container {
             margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+            max-width: 450px;
+            width: 90%;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .couple-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #page1 h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 10px;
             text-align: center;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 2px;
         }
 
         #page1 .heart {
             font-size: clamp(3rem, 12vw, 6rem);
             animation: heartbeat 1.5s ease infinite;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            10%, 30% { transform: scale(1.1); }
-            20%, 40% { transform: scale(1); }
+        #page1 h2 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        /* Page 2 - Question */
+        /* Page 2 - Travel Adventure */
         #page2 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #page2::before {
+            content: '☁️';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.3;
+            animation: float-cloud 20s linear infinite;
+            top: 10%;
+        }
+
+        #page2::after {
+            content: '☁️';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.3;
+            animation: float-cloud 25s linear infinite;
+            top: 60%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float-cloud {
+            0% {
+                left: -10%;
+            }
+            100% {
+                left: 110%;
+            }
+        }
+
+        .couple-image-container {
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+            max-width: 450px;
+            width: 90%;
+            animation: fadeInScale 1s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .couple-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .travel-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .travel-item {
+            font-size: clamp(2rem, 8vw, 3rem);
+            animation: bounce-in 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .travel-item:nth-child(1) { animation-delay: 0.1s; }
+        .travel-item:nth-child(2) { animation-delay: 0.2s; }
+        .travel-item:nth-child(3) { animation-delay: 0.3s; }
+        .travel-item:nth-child(4) { animation-delay: 0.4s; }
+        .travel-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes bounce-in {
+            0% {
+                opacity: 0;
+                transform: scale(0) translateY(-50px);
+            }
+            50% {
+                transform: scale(1.1) translateY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Page 3 - Poll */
+        #page3 {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #2d3436;
+        }
+
+        .poll-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 700px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .poll-option {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+        }
+
+        .poll-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .poll-option.selected {
+            border-color: #f5576c;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe8ee 100%);
+            transform: scale(1.05);
+        }
+
+        .poll-emoji {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 10px;
+        }
+
+        .poll-text {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .poll-response {
+            background: rgba(255,255,255,0.95);
+            padding: 20px 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            color: #f5576c;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease;
+        }
+
+        .poll-response.hidden {
+            display: none;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Page 4 - Singing Game */
+        #page4 {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fd79a8 100%);
+            color: #2d3436;
+        }
+
+        #page2 h2 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #page2 p {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .sargam-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .note {
+            width: clamp(60px, 15vw, 80px);
+            height: clamp(60px, 15vw, 80px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-family: 'Caveat', cursive;
+            user-select: none;
+            opacity: 0.3;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .note.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .note.active:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .note.played {
+            animation: notePlay 0.6s ease;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        @keyframes notePlay {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(15deg); }
+            100% { transform: scale(1); }
+        }
+
+        .note:nth-child(1) { background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; }
+        .note:nth-child(2) { background: linear-gradient(135deg, #feca57, #ff9ff3); color: white; }
+        .note:nth-child(3) { background: linear-gradient(135deg, #48dbfb, #0abde3); color: white; }
+        .note:nth-child(4) { background: linear-gradient(135deg, #1dd1a1, #10ac84); color: white; }
+        .note:nth-child(5) { background: linear-gradient(135deg, #ff9ff3, #feca57); color: white; }
+        .note:nth-child(6) { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: white; }
+        .note:nth-child(7) { background: linear-gradient(135deg, #fd79a8, #e84393); color: white; }
+        .note:nth-child(8) { background: linear-gradient(135deg, #ff6b6b, #c44569); color: white; }
+
+        .score-display {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .instruction-text {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            color: #2d3436;
+            background: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Page 4 - Flower Garden */
+        #page4 {
+            background: linear-gradient(135deg, #a8e6cf 0%, #ffd3b6 100%);
+            color: #2d3436;
+        }
+
+        #page4 h2 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        #page4 p {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .flower-palette {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .flower-seed {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: white;
+            border: 3px solid transparent;
+        }
+
+        .flower-seed:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .flower-seed.selected {
+            border-color: #f5576c;
+            transform: scale(1.15);
+        }
+
+        .garden-area {
+            width: 90%;
+            max-width: 600px;
+            height: 350px;
+            background: linear-gradient(180deg, #a8e6cf 0%, #8fd9a8 50%, #7ec699 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 4px 15px rgba(0,0,0,0.1);
+            cursor: crosshair;
+            margin-bottom: 20px;
+        }
+
+        .garden-grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: repeating-linear-gradient(
+                90deg,
+                #6ba368 0px,
+                #5d9359 2px,
+                #6ba368 4px
+            );
+        }
+
+        .planted-flower {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: grow 0.5s ease-out;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .planted-flower:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        @keyframes grow {
+            0% {
+                opacity: 0;
+                transform: scale(0) translateY(20px);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .garden-stats {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Page 5 - Question */
+        #page5 {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
         }
 
-        #page2 h2 {
+        #page5 h2 {
             font-size: clamp(1.8rem, 6vw, 3rem);
             margin-bottom: 40px;
             text-align: center;
-            font-weight: 300;
+            font-weight: 400;
             max-width: 600px;
             line-height: 1.4;
         }
 
-        .btn-container {
+        .question-container {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            width: 100%;
+            max-width: 400px;
         }
 
-        /* Page 3 - Message */
-        #page3 {
+        #yesBtn {
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Page 6 - Message */
+        #page6 {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             color: #333;
         }
 
-        #page3 .message-box {
+        #page6 .message-box {
             max-width: 500px;
             text-align: center;
             background: rgba(255, 255, 255, 0.9);
@@ -106,21 +535,21 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
-        #page3 h2 {
+        #page6 h2 {
             font-size: clamp(2rem, 6vw, 3rem);
             margin-bottom: 20px;
             color: #f5576c;
-            font-weight: 300;
+            font-weight: 400;
         }
 
-        #page3 p {
+        #page6 p {
             font-size: clamp(1rem, 4vw, 1.3rem);
             line-height: 1.8;
             margin-bottom: 30px;
             color: #555;
         }
 
-        #page3 .hearts {
+        #page6 .hearts {
             font-size: 2rem;
             margin-top: 20px;
         }
@@ -133,9 +562,15 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Georgia', serif;
+            font-family: 'Crimson Text', serif;
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
         .btn-primary {
@@ -143,7 +578,7 @@
             color: #667eea;
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
@@ -151,6 +586,7 @@
         .btn-yes {
             background: white;
             color: #f5576c;
+            font-weight: bold;
         }
 
         .btn-no {
@@ -195,11 +631,30 @@
             }
         }
 
+        /* Musical notes floating */
+        .musical-note {
+            position: fixed;
+            font-size: 25px;
+            animation: music-float 2s ease-out forwards;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @keyframes music-float {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-150px) scale(1.5);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 480px) {
-            .btn-container {
-                flex-direction: column;
-                width: 100%;
+            .question-container {
+                width: 90%;
             }
             
             .btn {
@@ -207,8 +662,12 @@
                 max-width: 300px;
             }
 
-            #page3 .message-box {
+            #page4 .message-box {
                 padding: 30px 20px;
+            }
+
+            .sargam-container {
+                gap: 10px;
             }
         }
     </style>
@@ -216,35 +675,179 @@
 <body>
     <!-- Page 1: Landing -->
     <div id="page1" class="page active">
+        <h1>Hi Rajeshwari! 💕</h1>
         <div class="heart">❤️</div>
-        <h1>Happy Valentine's Day</h1>
+        <h2>Happy Valentine's Day</h2>
         <button class="btn btn-primary" onclick="goToPage(2)">Open Your Heart</button>
     </div>
 
-    <!-- Page 2: Question -->
+    <!-- Page 2: Travel Adventure -->
     <div id="page2" class="page hidden">
+        <h2 style="font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 20px; text-align: center; color: white;">Adventures Together 🌍</h2>
+        <p style="font-size: clamp(1rem, 4vw, 1.3rem); margin-bottom: 25px; text-align: center; color: white; max-width: 500px;">Every journey is better with you by my side</p>
+        
+        <div class="couple-image-container">
+            <img src="couple-image.png" alt="Beautiful couple on a scooter adventure">
+        </div>
+
+        <div class="travel-icons">
+            <div class="travel-item">✈️</div>
+            <div class="travel-item">🗺️</div>
+            <div class="travel-item">🎒</div>
+            <div class="travel-item">📸</div>
+            <div class="travel-item">🏖️</div>
+        </div>
+
+        <button class="btn btn-primary" onclick="goToPage(3)" style="margin-top: 25px;">Continue Our Journey →</button>
+    </div>
+
+    <!-- Page 3: Poll -->
+    <div id="page3" class="page hidden">
+        <h2 style="font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 20px; text-align: center; color: #2d3436;">What do you love most when we're together? 💭</h2>
+        <p style="font-size: clamp(1rem, 4vw, 1.2rem); margin-bottom: 35px; text-align: center; color: #555; max-width: 500px;">Choose one (or maybe all of them? 😊)</p>
+        
+        <div class="poll-options">
+            <div class="poll-option" onclick="selectPollOption(this, 'adventures')">
+                <div class="poll-emoji">🌍</div>
+                <div class="poll-text">Our Adventures</div>
+            </div>
+            <div class="poll-option" onclick="selectPollOption(this, 'laughter')">
+                <div class="poll-emoji">😂</div>
+                <div class="poll-text">Your Humor</div>
+            </div>
+            <div class="poll-option" onclick="selectPollOption(this, 'deep-talks')">
+                <div class="poll-emoji">💬</div>
+                <div class="poll-text">Deep Conversations</div>
+            </div>
+            <div class="poll-option" onclick="selectPollOption(this, 'comfort')">
+                <div class="poll-emoji">🤗</div>
+                <div class="poll-text">Feeling Safe & Loved</div>
+            </div>
+            <div class="poll-option" onclick="selectPollOption(this, 'spontaneity')">
+                <div class="poll-emoji">✨</div>
+                <div class="poll-text">Your Spontaneity</div>
+            </div>
+            <div class="poll-option" onclick="selectPollOption(this, 'everything')">
+                <div class="poll-emoji">❤️</div>
+                <div class="poll-text">Everything About You</div>
+            </div>
+        </div>
+
+        <div id="pollResponse" class="poll-response hidden"></div>
+
+        <button id="pollContinueBtn" class="btn btn-primary" onclick="goToPage(4)" style="margin-top: 30px;" disabled>Continue →</button>
+    </div>
+
+    <!-- Page 4: Singing Game -->
+    <div id="page4" class="page hidden">
+        <h2>Play the Sargam! 🎵</h2>
+        <p>Click each note in sequence to complete the octave</p>
+        <div class="instruction-text">Play all 8 notes: सा रे ग म प ध नि सा</div>
+        <div class="sargam-container">
+            <div class="note" data-note="Sa" data-freq="261.63" data-index="0" onclick="playNote(this)">सा</div>
+            <div class="note" data-note="Re" data-freq="293.66" data-index="1" onclick="playNote(this)">रे</div>
+            <div class="note" data-note="Ga" data-freq="329.63" data-index="2" onclick="playNote(this)">ग</div>
+            <div class="note" data-note="Ma" data-freq="349.23" data-index="3" onclick="playNote(this)">म</div>
+            <div class="note" data-note="Pa" data-freq="392.00" data-index="4" onclick="playNote(this)">प</div>
+            <div class="note" data-note="Dha" data-freq="440.00" data-index="5" onclick="playNote(this)">ध</div>
+            <div class="note" data-note="Ni" data-freq="493.88" data-index="6" onclick="playNote(this)">नि</div>
+            <div class="note" data-note="Sa" data-freq="523.25" data-index="7" onclick="playNote(this)">सा</div>
+        </div>
+        <div class="score-display">Notes Played: <span id="noteCount">0</span> / 8 🎶</div>
+        <button id="continueBtn" class="btn btn-primary" onclick="goToPage(5)" style="margin-top: 30px;" disabled>Continue to Next →</button>
+    </div>
+
+    <!-- Page 5: Flower Garden -->
+    <div id="page5" class="page hidden">
+        <h2>Plant a Garden for Love 🌸</h2>
+        <p>Click flowers below, then click in the garden to plant them!</p>
+        
+        <div class="flower-palette">
+            <div class="flower-seed" data-flower="🌹" onclick="selectFlower('🌹', this)">🌹</div>
+            <div class="flower-seed" data-flower="🌺" onclick="selectFlower('🌺', this)">🌺</div>
+            <div class="flower-seed" data-flower="🌻" onclick="selectFlower('🌻', this)">🌻</div>
+            <div class="flower-seed" data-flower="🌷" onclick="selectFlower('🌷', this)">🌷</div>
+            <div class="flower-seed" data-flower="🌼" onclick="selectFlower('🌼', this)">🌼</div>
+            <div class="flower-seed" data-flower="🏵️" onclick="selectFlower('🏵️', this)">🏵️</div>
+        </div>
+
+        <div class="garden-area" id="gardenArea" onclick="plantFlower(event)">
+            <div class="garden-grass"></div>
+        </div>
+
+        <div class="garden-stats">
+            Flowers Planted: <span id="flowerCount">0</span> 🌱
+        </div>
+
+        <button id="gardenContinueBtn" class="btn btn-primary" onclick="goToPage(6)" style="margin-top: 10px;" disabled>Continue to Next →</button>
+    </div>
+
+    <!-- Page 6: Question -->
+    <div id="page6" class="page hidden">
         <h2>Will you be my Valentine?</h2>
-        <div class="btn-container">
-            <button class="btn btn-yes" onclick="goToPage(3)">Yes! 💕</button>
-            <button class="btn btn-no" onclick="tryAgain()">Maybe... 🤔</button>
+        <div class="question-container">
+            <button id="yesBtn" class="btn btn-yes" onclick="goToPage(7)">Yes! 💕</button>
+            <button class="btn btn-no" onclick="makeYesBigger()">No 🤔</button>
         </div>
     </div>
 
-    <!-- Page 3: Message -->
-    <div id="page3" class="page hidden">
+    <!-- Page 7: Message -->
+    <div id="page7" class="page hidden">
         <div class="message-box">
             <h2>Perfect! 🎉</h2>
-            <p>You've just made my Valentine's Day extra special. Sending hugs and kisses virtually all the way from Hyderabad.</p>
+            <p>You've just made this Valentine's Day extra special. Here's to all the beautiful moments we'll share together, filled with music and love.</p>
             <p style="font-style: italic; font-size: 1rem; color: #888;">
-                "I'm yours, Koku, if you'll have me"
+                "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
             </p>
             <div class="hearts">💕 💗 💖 💝 💓</div>
-            <button class="btn btn-back" onclick="goToPage(1)">Start Over</button>
+            <button class="btn btn-back" onclick="resetAndGoToPage1()">Start Over</button>
         </div>
     </div>
 
     <script>
         let currentPage = 1;
+        let noteCount = 0;
+        let currentNoteIndex = 0;
+        let yesBtnScale = 1;
+        let selectedFlower = null;
+        let flowerCount = 0;
+        let pollSelected = false;
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        function selectPollOption(element, choice) {
+            // Remove selection from all options
+            document.querySelectorAll('.poll-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Select this option
+            element.classList.add('selected');
+            pollSelected = true;
+            
+            // Show personalized response
+            const responses = {
+                'adventures': "Yes! Every adventure is magical with you! 🌍✨",
+                'laughter': "Your laugh is my favorite sound in the world! 😄💕",
+                'deep-talks': "I cherish every conversation we have 💭❤️",
+                'comfort': "You're my safe place, always 🤗💖",
+                'spontaneity': "Life with you is never boring! ✨😊",
+                'everything': "That's my answer too - everything about YOU! ❤️💕"
+            };
+            
+            const responseDiv = document.getElementById('pollResponse');
+            responseDiv.textContent = responses[choice];
+            responseDiv.classList.remove('hidden');
+            
+            // Enable continue button
+            document.getElementById('pollContinueBtn').disabled = false;
+            document.getElementById('pollContinueBtn').style.animation = 'pulse 1s infinite';
+        }
+
+        // Initialize first note as active when page 2 loads
+        function initializeSargam() {
+            const notes = document.querySelectorAll('.note');
+            notes[0].classList.add('active');
+        }
 
         function goToPage(pageNum) {
             // Hide current page
@@ -263,25 +866,239 @@
 
             currentPage = pageNum;
 
-            // Add floating hearts effect on page 3
-            if (pageNum === 3) {
+            // Initialize sargam when entering page 4
+            if (pageNum === 4) {
+                setTimeout(initializeSargam, 100);
+            }
+
+            // Add floating hearts effect on page 7
+            if (pageNum === 7) {
                 createFloatingHearts();
+            }
+
+            // Reset yes button size when entering page 6
+            if (pageNum === 6) {
+                yesBtnScale = 1;
+                const yesBtn = document.getElementById('yesBtn');
+                yesBtn.style.transform = 'scale(1)';
+                yesBtn.style.fontSize = '';
             }
         }
 
-        function tryAgain() {
-            // Shake animation for "Maybe" button
-            const button = event.target;
-            button.style.animation = 'shake 0.5s';
+        function playNote(element) {
+            const noteIndex = parseInt(element.getAttribute('data-index'));
+            
+            // Check if this is the correct note in sequence
+            if (noteIndex !== currentNoteIndex) {
+                return; // Don't play if it's not the next note
+            }
+
+            const freq = parseFloat(element.getAttribute('data-freq'));
+            const noteName = element.getAttribute('data-note');
+            
+            // Play sound
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = freq;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+            
+            // Visual feedback
+            element.classList.add('played');
             setTimeout(() => {
-                button.style.animation = '';
-                alert("Come on, you know you want to say yes! 💕");
+                element.classList.remove('played');
+            }, 600);
+            
+            // Create floating musical note
+            createMusicalNote(element);
+            
+            // Update counter
+            noteCount++;
+            currentNoteIndex++;
+            document.getElementById('noteCount').textContent = noteCount;
+            
+            // Activate next note
+            const notes = document.querySelectorAll('.note');
+            if (currentNoteIndex < notes.length) {
+                setTimeout(() => {
+                    notes[currentNoteIndex].classList.add('active');
+                }, 300);
+            }
+            
+            // Enable continue button when all notes are played
+            if (noteCount === 8) {
+                setTimeout(() => {
+                    document.getElementById('continueBtn').disabled = false;
+                    document.getElementById('continueBtn').style.animation = 'pulse 1s infinite';
+                }, 500);
+            }
+        }
+
+        function createMusicalNote(element) {
+            const notes = ['♪', '♫', '♬', '🎵', '🎶'];
+            const note = document.createElement('div');
+            note.className = 'musical-note';
+            note.textContent = notes[Math.floor(Math.random() * notes.length)];
+            
+            const rect = element.getBoundingClientRect();
+            note.style.left = rect.left + rect.width / 2 + 'px';
+            note.style.top = rect.top + 'px';
+            
+            document.body.appendChild(note);
+            
+            setTimeout(() => {
+                note.remove();
+            }, 2000);
+        }
+
+        function selectFlower(flower, element) {
+            // Remove selection from all seeds
+            document.querySelectorAll('.flower-seed').forEach(seed => {
+                seed.classList.remove('selected');
+            });
+            
+            // Select this flower
+            selectedFlower = flower;
+            element.classList.add('selected');
+        }
+
+        function plantFlower(event) {
+            if (!selectedFlower) {
+                return; // No flower selected
+            }
+
+            const garden = document.getElementById('gardenArea');
+            const rect = garden.getBoundingClientRect();
+            
+            // Calculate position relative to garden
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            // Create flower element
+            const flower = document.createElement('div');
+            flower.className = 'planted-flower';
+            flower.textContent = selectedFlower;
+            flower.style.left = (x - 20) + 'px';
+            flower.style.top = (y - 20) + 'px';
+            
+            // Add click to remove functionality
+            flower.onclick = function(e) {
+                e.stopPropagation();
+                flower.remove();
+                flowerCount--;
+                updateFlowerCount();
+            };
+            
+            garden.appendChild(flower);
+            
+            // Update count
+            flowerCount++;
+            updateFlowerCount();
+            
+            // Auto-fill garden after 3-4 clicks
+            if (flowerCount >= 3 && flowerCount <= 4) {
+                setTimeout(() => {
+                    autoFillGarden();
+                }, 500);
+            }
+        }
+
+        function autoFillGarden() {
+            const garden = document.getElementById('gardenArea');
+            const rect = garden.getBoundingClientRect();
+            const flowers = ['🌹', '🌺', '🌻', '🌷', '🌼', '🏵️'];
+            
+            // Plant 20-25 more flowers randomly
+            const numberOfFlowers = 22;
+            
+            for (let i = 0; i < numberOfFlowers; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.className = 'planted-flower';
+                    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                    
+                    // Random position (avoiding edges)
+                    const x = Math.random() * (rect.width - 80) + 20;
+                    const y = Math.random() * (rect.height - 100) + 20;
+                    
+                    flower.style.left = x + 'px';
+                    flower.style.top = y + 'px';
+                    
+                    flower.onclick = function(e) {
+                        e.stopPropagation();
+                        flower.remove();
+                        flowerCount--;
+                        updateFlowerCount();
+                    };
+                    
+                    garden.appendChild(flower);
+                    flowerCount++;
+                    
+                    // Update display
+                    if (i === numberOfFlowers - 1) {
+                        updateFlowerCount();
+                        
+                        // Show sweet message
+                        setTimeout(() => {
+                            alert("Here's a full garden of flowers for a beautiful lady! 🌸💕\n\nI don't want you to work hard on planting - you deserve to just enjoy the beauty, like you bring beauty to my life every day! 💐");
+                        }, 300);
+                    }
+                }, i * 100);
+            }
+        }
+
+        function updateFlowerCount() {
+            document.getElementById('flowerCount').textContent = flowerCount;
+            
+            // Enable continue button after planting at least 3 flowers (will auto-complete)
+            const continueBtn = document.getElementById('gardenContinueBtn');
+            if (flowerCount >= 3) {
+                continueBtn.disabled = false;
+                continueBtn.style.animation = 'pulse 1s infinite';
+            } else {
+                continueBtn.disabled = true;
+                continueBtn.style.animation = '';
+            }
+        }
+
+        function makeYesBigger() {
+            yesBtnScale += 0.3;
+            const yesBtn = document.getElementById('yesBtn');
+            
+            yesBtn.style.transform = `scale(${yesBtnScale})`;
+            
+            // Also increase font size for better effect
+            const currentFontSize = window.getComputedStyle(yesBtn).fontSize;
+            const newSize = parseFloat(currentFontSize) * 1.1;
+            yesBtn.style.fontSize = newSize + 'px';
+            
+            // Shake the No button
+            const noBtn = event.target;
+            noBtn.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                noBtn.style.animation = '';
             }, 500);
+            
+            // Show encouraging message
+            if (yesBtnScale > 2.5) {
+                setTimeout(() => {
+                    alert("The YES button is taking over! You know what to do! 💕");
+                }, 300);
+            }
         }
 
         function createFloatingHearts() {
             const hearts = ['❤️', '💕', '💗', '💖', '💝'];
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'floating-heart';
@@ -297,13 +1114,72 @@
             }
         }
 
-        // Add shake animation
+        function resetAndGoToPage1() {
+            // Reset all game states
+            noteCount = 0;
+            currentNoteIndex = 0;
+            yesBtnScale = 1;
+            flowerCount = 0;
+            selectedFlower = null;
+            pollSelected = false;
+            
+            // Reset note counter display
+            document.getElementById('noteCount').textContent = '0';
+            
+            // Reset continue button
+            const continueBtn = document.getElementById('continueBtn');
+            continueBtn.disabled = true;
+            continueBtn.style.animation = '';
+            
+            // Reset all notes
+            const notes = document.querySelectorAll('.note');
+            notes.forEach(note => {
+                note.classList.remove('active', 'played');
+            });
+            
+            // Reset poll
+            document.querySelectorAll('.poll-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById('pollResponse').classList.add('hidden');
+            const pollContinueBtn = document.getElementById('pollContinueBtn');
+            pollContinueBtn.disabled = true;
+            pollContinueBtn.style.animation = '';
+            
+            // Reset flower garden
+            const garden = document.getElementById('gardenArea');
+            const plantedFlowers = garden.querySelectorAll('.planted-flower');
+            plantedFlowers.forEach(flower => flower.remove());
+            document.getElementById('flowerCount').textContent = '0';
+            
+            const gardenContinueBtn = document.getElementById('gardenContinueBtn');
+            gardenContinueBtn.disabled = true;
+            gardenContinueBtn.style.animation = '';
+            
+            document.querySelectorAll('.flower-seed').forEach(seed => {
+                seed.classList.remove('selected');
+            });
+            
+            // Reset yes button
+            const yesBtn = document.getElementById('yesBtn');
+            yesBtn.style.transform = 'scale(1)';
+            yesBtn.style.fontSize = '';
+            
+            // Go to page 1
+            goToPage(1);
+        }
+
+        // Add shake and pulse animations
         const style = document.createElement('style');
         style.textContent = `
             @keyframes shake {
                 0%, 100% { transform: translateX(0); }
                 25% { transform: translateX(-10px); }
                 75% { transform: translateX(10px); }
+            }
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
             }
         `;
         document.head.appendChild(style);
