@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day ❤️</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Crimson+Text:wght@400;600&displayMemoryt
             box-sizing: border-box;
         }
 
@@ -282,6 +278,15 @@
             font-weight: 600;
             color: #2d3436;
             background: white;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 200px;          /* same as placeholder height */
+            object-fit: contain;    /* prevents cropping */
+            object-position: center;
+            display: block;
+            background: white;      /* prevents weird transparent gaps */
         }
 
         .gallery-note {
@@ -876,9 +881,6 @@
             </div>
         </div>
 
-        <div class="gallery-note">
-            💡 Tip: You can add your real photos by replacing the placeholders!
-        </div>
 
         <button class="btn btn-primary" onclick="goToPage(4)" style="margin-top: 25px;">Continue to Next →</button>
     </div>
